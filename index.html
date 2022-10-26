@@ -6,16 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Lista de tarefas da Thais</h1>
-    <input type="text" id="nome-tarefa"/>
-    <button onclick="adicionarTarefa()">
-        Criar tarefa
-    </button>
-    <div id="lista-tarefas"></div>
+    <header>
+        <h1 class="titulo">Lista de tarefas da Thaís</h1>
+    </header>
 
-<script src="./index.js"></script>
+    <main>
+        <section class="principal">
+            <div class="botoes-inputs">
+                <input type="text" id="nome-tarefa" class="inputName"/>
+            <button onclick="adicionarTarefa()" class="botao-adicionar">
+                CRIAR TAREFA
+            </button>
+            </div>
+            
+            <div id="lista-tarefas"></div>
+        </section>
+    </main>
+
+    <br><br>
+    <hr>
+    <footer>
+        <h5 class="nome-desenvolvedor">Desenvolvido por Thaís Brito.</h5>
+    </footer>
+
+    <script src="./index.js"></script>
 </body>
+
 </html>
