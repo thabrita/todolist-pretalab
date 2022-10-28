@@ -1,5 +1,10 @@
 let id = 0
 
+const dados = {
+    pegarTarefas: () => JSON.parse(localStorage.getItem('lista-tarefas')),
+    editarTarefas: (listaTarefas) => localStorage.setItem('lista-tarefas', JSON.stringify(listaTarefas))
+}
+
 const tarefa = (id, novaTarefa) => `<div>
 <p id='${id}'>${novaTarefa}</p>
 <input type="checkbox" class="inputCheckbox" onchange="marcarTarefa(${id})"/>
@@ -19,7 +24,7 @@ const marcarTarefa = (id) => {
 
 function exibirLista() {
     id++
-    const tarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
+    const tarefas = dados.pegarTarefas()
     if (tarefas) {
         tarefas.forEach(tarefaListada => {
             document.querySelector('#lista-tarefas').innerHTML += tarefa(id, tarefaListada)
@@ -29,7 +34,7 @@ function exibirLista() {
 
 const validarTarefa = (novaTarefa) => {
     let tarefaExistente = false
-    const listaTarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
+    const listaTarefas = dados.pegarTarefas()
 
     if(listaTarefas){
         listaTarefas.map(tarefa => {
@@ -46,7 +51,7 @@ const validarTarefa = (novaTarefa) => {
 function adicionarTarefa() {
     id++
     const novaTarefa = document.getElementById('nome-tarefa').value
-    const listaTarefas = localStorage.getItem('lista-tarefas')
+    const listaTarefas = dados.pegarTarefas()
     if(validarTarefa(novaTarefa)) {
         return
     }
@@ -54,7 +59,7 @@ function adicionarTarefa() {
     document.querySelector('#lista-tarefas').innerHTML += tarefa(id, novaTarefa)
 
     if (listaTarefas) {
-        const novaLista = JSON.parse(listaTarefas)
+        const novaLista = dados.pegarTarefas()
         novaLista.push(novaTarefa)
         localStorage.setItem('lista-tarefas', JSON.stringify(novaLista))
     } else {
@@ -64,7 +69,7 @@ function adicionarTarefa() {
 
 const removerTarefa = (id) => {
     const tarefaDeletada = document.getElementById(id).innerHTML
-    const listaTarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
+    const listaTarefas = dados.pegarTarefas()
     const novaListaTarefa = listaTarefas.filter(tarefa => tarefa != tarefaDeletada)
     localStorage.setItem('lista-tarefas', JSON.stringify(novaListaTarefa))
     document.querySelector('#lista-tarefas').innerHTML = ""
