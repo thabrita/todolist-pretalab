@@ -5,36 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
     <title>Lista de tarefas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1 class="titulo">Lista de tarefas da Thaís</h1>
-    </header>
-
-    <main>
-        <section class="principal">
-            <div class="botoes-inputs">
-                <input type="text" id="nome-tarefa" class="inputName"/>
-            <button onclick="adicionarTarefa()" class="botao-adicionar">
-                CRIAR TAREFA
-            </button>
-            </div>
-        </section>
-        
-        <section>
-            <div id="lista-tarefas"></div>
-        </section>
-    </main>
-
-    <br><br>
-    <hr>
-    <footer>
-        <h5 class="nome-desenvolvedor">Desenvolvido por Thaís Brito.</h5>
-    </footer>
-
+    <div class="container-principal">
+        <div class="to-do-box">
+            <form class="to-do-list">
+                <div class="label-area">
+                    <label for="to-do" id="toDoLabel" class="to-do-label">
+                            LISTA DE TAREFAS <i class="fas fa-clipboard-list"></i>
+                    </label>
+                </div>
+                <div class="to-do-input-area">
+                    <textarea type="text" name="to-do" id="nome-tarefa" class="to-do-input" placeholder="inserir tarefa"></textarea>
+                </div>
+                <button  onclick="adicionarTarefa()" type="submit" class="button-add"> 
+                    criar tarefa
+                </button>
+            </form>
+        </div>
+        <div  id= "lista-tarefas" class="to-do-box add-itens container" ></div>
+    </div>
+  
     <script src="./index.js"></script>
 </body>
 

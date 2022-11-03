@@ -1,9 +1,9 @@
 let id = 0
 
-const tarefa = (id, novaTarefa) => `<div>
-<p id='${id}'>${novaTarefa}</p>
-<input type="checkbox" class="inputCheckbox" onchange="marcarTarefa(${id})"/>
-<button onclick="removerTarefa(${id})" class="botao-remover">Remover</button>
+const tarefa = (id, novaTarefa) => `<div id="div-tarefa">
+<input type="checkbox" class="inputCheckbox" onchange="marcarTarefa(${id})"/> 
+<p id='${id}'>${novaTarefa}</p>                           
+<button onclick="removerTarefa(${id})" class="botao-remover"><i class="fas fa-trash-alt"></i></button>
 </div>`
 
 const marcarTarefa = (id) => {
