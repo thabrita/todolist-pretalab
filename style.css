@@ -7,7 +7,7 @@
 body {
     background-color: #eaeaea;
     margin: 0;
-    background-image: url(lista-de-tarefas.jpg); 
+    background-image: url(./img/lista-de-tarefas.jpg); 
     background-size: 100%;
     backdrop-filter: blur(2px);
 }
